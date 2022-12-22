@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Home | Web Scraping API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Glory&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='./style.css'>
+</head>
+
+<body>
+    <header>
+        <h3>Web Scraping API</h3>
+        <div>
+            <a href="/" class="active">Home</a>
+            <a href="/projects">Projects</a>
+        </div>
+    </header>
+    <main>
+        <h1>Web Scraping API</h1>
+        <p>Web Scraping API can be used to <span>scrape</span> any scrapable website, this API has been created by <a
+                class="link" target="_blank" href="https://www.linkedin.com/in/ahmed0saber/">ahmed0saber</a>, click the
+            below button to view projects created with the help of Flowers API.</p>
+        <a class="btn" href="/projects">View Projects</a>
+    </main>
+    <span class="separator"></span>
+    <section>
+        <h2>Usage</h2>
+        <p>To scrape a website, send a <span>POST</span> request with body consisting of <span>url</span> and
+            <span>items</span> to <span>/scrape</span>
+            endpoint.
+        </p>
+        <p>Look at the below request body for example.</p>
+        <code><pre>{
+    url: "https://github.com/ahmed0saber",
+    items: {
+        "img": {
+            "selector": ".avatar-user.avatar",
+            "type": "src"
+        },
+        "name": {
+            "selector": ".vcard-fullname",
+            "type": "text"
+        },
+        "bio": {
+            "selector": ".user-profile-bio",
+            "type": "text"
+        }
+    }
+}</pre></code>
+        <p>For this request body, you should receive the following response.</p>
+        <code><pre>{
+    "img": "https://avatars.githubusercontent.com/u/64714761?v=4",
+    "name": "Ahmed Saber",
+    "bio": "Hello there, my name is Ahmed Saber, I'm an egyptian React.js Frontend Web Developer who was born in 2001."
+}</pre></code>
+    </section>
+</body>
+
+</html>
